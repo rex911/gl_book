@@ -42,7 +42,7 @@ class GLBooker(object):
         elif driver == 'Firefox':
             options = Options()
             options.headless = True
-            driver = webdriver.Firefox(options=options)
+            self.driver = webdriver.Firefox(options=options)
         else:
             raise ValueError('Unsupported webdriver: {}'.format(driver))
 
