@@ -1,6 +1,7 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time
 
 
 class GLBooker(object):
@@ -12,7 +13,8 @@ class GLBooker(object):
                  url='https://www.goodlifefitness.com/members/bookings/workout',
                  days_later=7,
                  workout_start='6:15PM',
-                 workout_end='7:15PM'):
+                 workout_end='7:15PM',
+                 driver='Safari'):
         """Main class for the booker
 
         Args:
@@ -34,7 +36,12 @@ class GLBooker(object):
         self.days_later = days_later
         self.workout_start = workout_start
         self.workout_end = workout_end
-        self.driver = webdriver.Safari()
+        if driver == 'Safari':
+            self.driver = webdriver.Safari()
+        elif driver == 'Firefox':
+            self.driver = webdriver.Firefox()
+        else:
+            raise ValueError('Unsupported webdriver: {}'.format(driver))
 
     def login(self):
         self.driver.get(self.url)

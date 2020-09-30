@@ -1,0 +1,27 @@
+name: Book for 7 days later
+
+on: [push]
+
+jobs:
+  book:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Book
+      run: |
+        python src/book.py
+      env:
+        GOODLIFE_USERNAME: ${{ secrets.GOODLIFE_USERNAME }}
+        GOODLIFE_PASSWORD: ${{ secrets.GOODLIFE_PASSWORD }}
+        DAYS_LATER: 4
+        WORKOUT_START: 7:00AM
+        WORKOUT_END: 8:00AM
+        WEBDRIVER: Firefox
