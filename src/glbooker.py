@@ -2,6 +2,7 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.options import Options
 
 
 class GLBooker(object):
@@ -39,7 +40,9 @@ class GLBooker(object):
         if driver == 'Safari':
             self.driver = webdriver.Safari()
         elif driver == 'Firefox':
-            self.driver = webdriver.Firefox()
+            options = Options()
+            options.headless = True
+            driver = webdriver.Firefox(options=options)
         else:
             raise ValueError('Unsupported webdriver: {}'.format(driver))
 
