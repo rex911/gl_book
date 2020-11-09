@@ -2,7 +2,7 @@ name: Book for 7 days later
 
 on:
   schedule:
-    - cron: '0 4 * * 1-5'
+    - cron: '0 5 * * 1-5'
 
 jobs:
   book:
@@ -24,6 +24,6 @@ jobs:
         GOODLIFE_USERNAME: ${{ secrets.GOODLIFE_USERNAME }}
         GOODLIFE_PASSWORD: ${{ secrets.GOODLIFE_PASSWORD }}
         DAYS_LATER: 7
-        WORKOUT_START: 6:15PM
-        WORKOUT_END: 7:15PM
+        WORKOUT_START: 6:00PM
+        WORKOUT_END: 7:00PM
         WEBDRIVER: Firefox
