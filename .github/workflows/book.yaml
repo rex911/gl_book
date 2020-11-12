@@ -2,7 +2,7 @@ name: Book for 7 days later
 
 on:
   schedule:
-    - cron: '0 5 * * 1-5'
+    - cron: '54 4 * * 1-5'
 
 jobs:
   book:
