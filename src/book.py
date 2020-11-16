@@ -1,8 +1,10 @@
 import os
+import time
 
 from glbooker import GLBooker
 
 if __name__ == '__main__':
+    time.sleep(300)
     booker = GLBooker(
         username=os.environ['GOODLIFE_USERNAME'],
         password=os.environ['GOODLIFE_PASSWORD'],
